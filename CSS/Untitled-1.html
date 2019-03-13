@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <html>
+     <head>
+         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+         <title>选项卡</title>
+         <style type="text/css">
+             #smallTab {
+                 width: 500px;
+                 margin: 0 auto;
+                 box-shadow: 5px 5px 5px #888888;
+             }
+             #smallTab h3 {
+                 margin: 0px;
+                 padding: 0px;
+                 font-size: 14px;
+                 float: left;
+                 right: 5px;                
+                 width: 60px;
+                 height: 24px;
+                 line-height: 24px;
+                 text-align: center; 
+             }
+             #smallTab div {
+                 clear: both;
+                 height: 100px;
+                 font-size: 14px;
+                 padding: 20px 0px 0px 20px;    
+                 display: none;        
+             }
+             #smallTab h3.active {
+                 background: #cccc00;
+             }
+             #smallTab div.smartTab_content {
+                 display: block;
+                 background: #cccc00;
+             }
+         </style>
+         
+         <script type="text/javascript">
+             window.onload = function() {
+                 var oTab = document.getElementById("smallTab");
+                 var aH3 = oTab.getElementsByTagName("h3");
+                 var aDiv = oTab.getElementsByTagName("div");
+                 for (var i = 0; i < aH3.length; i++) {
+                     aH3[i].index = i;
+                     aH3[i].onclick = function() {
+                         for (var i = 0; i < aH3.length; i++) {
+                             aH3[i].className = "";
+                             aDiv[i].style.display = "none";
+                             aDiv[this.index].className = "";
+                             aDiv[this.index].className = "smartTab_content";
+                         }
+                         this.className = "active";
+                         aDiv[this.index].style.display = "block";
+                     };
+                 }
+             };
+         </script>
+     </head>
+     
+     <body>
+         <div id="smallTab">        
+             <h3 class="active">今日疯抢</h3>
+             <h3>量贩装</h3>
+            
+             
+             <div class="smartTab_content">
+                 <p>限时限量疯抢</p>
+                 <p>一元超值疯抢中</p>
+             </div>
+             <div>
+                 <p>纽仕兰鲜奶品</p>
+                 <p>一元超值疯抢中</p>
+             </div>
+                            
+         </div>
+     </body>
+ </html>
